@@ -24,7 +24,9 @@ export const OptionContainer = styled.div(
     padding: "1rem",
     width: isSidebarCollapsed ? "56px" : "120px",
     height: isSidebarCollapsed ? "56px" : "125px",
-    backgroundColor: isActive ? "rgba(204, 233, 250, 0.2)" : "#1e293b",
+    backgroundColor: isActive
+      ? "rgba(204, 233, 250, 0.2)"
+      : "rgba(242, 244, 247, 0.05)",
     borderRadius: "12px",
     cursor: "pointer",
     transition: "background-color 0.2s ease",

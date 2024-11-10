@@ -1,20 +1,20 @@
 import { put, takeLatest, call } from "redux-saga/effects";
 import {
-  loadConversationsSuccess,
-  loadConversationsFailure,
-  loadConversations,
+  fetchSuggestedQuestions,
+  fetchSuggestedQuestionsSuccess,
+  fetchSuggestedQuestionsFailure,
 } from "../slices/conversationSlice";
+import { getSuggestedQuestionsService } from "../../services/conversations";
 
-function* loadConversationsSaga() {
+function* fetchSuggestedQuestionsSaga(action) {
   try {
-    const response = yield call(fetch, "/mock-api/conversations");
-    const data = yield response.json();
-    yield put(loadConversationsSuccess(data));
+    const response = yield call(getSuggestedQuestionsService, action.payload);
+    yield put(fetchSuggestedQuestionsSuccess(response));
   } catch (error) {
-    yield put(loadConversationsFailure(error.message));
+    yield put(fetchSuggestedQuestionsFailure(error.message));
   }
 }
 
 export function* conversationWatcherSaga() {
-  yield takeLatest(loadConversations.type, loadConversationsSaga);
+  yield takeLatest(fetchSuggestedQuestions.type, fetchSuggestedQuestionsSaga);
 }
