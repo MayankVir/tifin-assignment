@@ -19,14 +19,12 @@ const SendMessage = () => {
   const [message, setMessage] = useState("");
 
   const handleSendMessage = () => {
-    if (message.trim()) {
-      const currentMessage = message;
-      setMessage("");
-      Promise.resolve().then(() => {
-        dispatch(sendMessage(currentMessage));
-        navigate("/conversations");
-      });
-    }
+    const currentMessage = message.trim();
+    setMessage("");
+    Promise.resolve().then(() => {
+      dispatch(sendMessage(currentMessage));
+      navigate("/conversations");
+    });
   };
 
   const debouncedSearch = useCallback(
