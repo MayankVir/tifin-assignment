@@ -22,7 +22,7 @@ export const HomeContainer = styled.div(() => ({
     height: "fit-content",
     justifyContent: "flex-start",
     width: "100%",
-    gap: "1rem",
+    gap: "0.5rem",
     "& .message": {
       fontSize: "14px",
       fontWeight: 500,
@@ -30,6 +30,10 @@ export const HomeContainer = styled.div(() => ({
       wordBreak: "break-word",
       wordWrap: "break-word",
       width: "100%",
+      animation: "textFade 0.5s ease-in-out",
+    },
+    "& .fade-text": {
+      transition: "opacity 0.3s ease-in-out",
     },
     "& .time": {
       minWidth: "54px",

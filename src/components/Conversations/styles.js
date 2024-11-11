@@ -5,16 +5,27 @@ export const ConversationListSection = styled.div({
   flexDirection: "column",
   alignItems: "flex-start",
   justifyContent: "flex-start",
-  gap: "0.5rem",
+  gap: "1.5rem",
   overflowY: "auto",
   width: "100%",
+  paddingTop: "1rem",
+  "&::-webkit-scrollbar": {
+    width: "6px",
+  },
+  "&::-webkit-scrollbar-track": {
+    background: "transparent",
+  },
+  "&::-webkit-scrollbar-thumb": {
+    background: "#D1D5DB",
+    borderRadius: "3px",
+  },
 });
 
 export const ConversationItem = styled.div({
   display: "flex",
   alignItems: "center",
   gap: "10px",
-  padding: "0.75rem 1rem",
+  padding: "0 1rem",
   borderRadius: "0.5rem",
   width: "100%",
   "& .message": {

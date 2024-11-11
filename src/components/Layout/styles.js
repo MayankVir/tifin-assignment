@@ -32,6 +32,7 @@ export const HomeSection = styled.div({
   position: "relative",
   display: "flex",
   width: "100%",
+  overflow: "auto",
 });
 
 export const MessageInputSection = styled.div(
@@ -62,6 +63,10 @@ export const ChatInput = styled.div({
     outline: "none",
     background: "none",
     cursor: "pointer",
+    "&:disabled": {
+      opacity: 0.5,
+      cursor: "not-allowed",
+    },
   },
 });
 

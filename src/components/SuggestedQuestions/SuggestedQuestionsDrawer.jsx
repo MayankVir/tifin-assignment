@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  DrawerContainer,
-  DrawerContent,
-  Heading,
-  QuestionItem,
-  QuestionList,
-} from "./styles";
+import { DrawerContainer, Heading, QuestionItem, QuestionList } from "./styles";
 import { useSelector } from "react-redux";
 
 const SuggestedQuestionsDrawer = () => {

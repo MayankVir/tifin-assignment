@@ -37,7 +37,7 @@ const SendMessage = () => {
   );
 
   useEffect(() => {
-    if (message && conversations.length > 0) {
+    if (message.trim().length > 0) {
       debouncedSearch(message);
     }
   }, [message, debouncedSearch, conversations]);
@@ -51,6 +51,11 @@ const SendMessage = () => {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           className="message-input"
+          onKeyDown={(e) => {
+            if (e.key === "Enter" && message.trim()) {
+              handleSendMessage();
+            }
+          }}
         />
         <button
           onClick={handleSendMessage}

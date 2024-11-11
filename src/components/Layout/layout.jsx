@@ -1,4 +1,3 @@
-import { useLocation } from "react-router-dom";
 import { Header, HomeSection, InnerContainer, OuterContainer } from "./styles";
 import SideToggler from "./SideToggler";
 import SendMessage from "./SendMessage";
@@ -7,10 +6,8 @@ import { useSelector } from "react-redux";
 import logo from "../../assets/icons/svg/logo.svg";
 
 const Layout = ({ children }) => {
-  const { pathname } = useLocation();
-  const { conversations, suggestedQuestionsDrawer } = useSelector(
-    (state) => state.conversation,
-  );
+  const { suggestedQuestionsDrawer, showSuggestedQuestionsToggle } =
+    useSelector((state) => state.conversation);
 
   return (
     <OuterContainer>
@@ -22,14 +19,14 @@ const Layout = ({ children }) => {
         <HomeSection>
           <SideToggler type="sidebar" />
           {children}
-          <SideToggler
-            type="suggestedQuestions"
-          />
+          {showSuggestedQuestionsToggle && (
+            <SideToggler type="suggestedQuestions" />
+          )}
         </HomeSection>
 
         <SendMessage />
       </InnerContainer>
-      {pathname === "/conversations" && <SuggestedQuestionsDrawer />}
+      <SuggestedQuestionsDrawer />
     </OuterContainer>
   );
 };

@@ -1,7 +1,6 @@
 import React from "react";
 import toggle from "../../assets/icons/svg/toggle.svg";
-
-import { toggleSidebar } from "../../store/slices/appSlice";
+import { setSidebarState, toggleSidebar } from "../../store/slices/appSlice";
 import { useDispatch } from "react-redux";
 import { toggleSuggestedQuestionsDrawer } from "../../store/slices/conversationSlice";
 import { ToggleWrapper } from "./styles";
@@ -13,6 +12,7 @@ const SideToggler = ({ type, show = true }) => {
       dispatch(toggleSidebar());
     } else if (type === "suggestedQuestions") {
       dispatch(toggleSuggestedQuestionsDrawer());
+      dispatch(setSidebarState(true));
     }
   };
 
