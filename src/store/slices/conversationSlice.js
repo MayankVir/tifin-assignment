@@ -3,18 +3,14 @@ import { createSlice } from "@reduxjs/toolkit";
 const conversationSlice = createSlice({
   name: "conversation",
   initialState: {
-    conversations: [
-      // {
-      //   message: "Hello, how are you?",
-      //   time: new Date().getTime(),
-      // },
-    ],
+    conversations: [],
     suggestedQuestions: {
       data: [],
       loading: false,
       error: null,
     },
     suggestedQuestionsDrawer: false,
+    showSuggestedQuestionsToggle: false,
   },
   reducers: {
     fetchSuggestedQuestions: (state) => {
@@ -25,6 +21,9 @@ const conversationSlice = createSlice({
       state.suggestedQuestions.loading = false;
       state.suggestedQuestions.data = action.payload;
       state.suggestedQuestions.error = null;
+      if (state.showSuggestedQuestionsToggle === false) {
+        state.showSuggestedQuestionsToggle = true;
+      }
     },
     fetchSuggestedQuestionsFailure: (state, action) => {
       state.suggestedQuestions.loading = false;

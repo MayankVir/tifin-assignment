@@ -1,21 +1,14 @@
 import React from "react";
-import {
-  DrawerContainer,
-  DrawerContent,
-  Heading,
-  QuestionItem,
-  QuestionList,
-} from "./styles";
+import { DrawerContainer, Heading, QuestionItem, QuestionList } from "./styles";
 import { useSelector } from "react-redux";
 
-const Drawer = () => {
+const SuggestedQuestionsDrawer = () => {
   const { suggestedQuestions, suggestedQuestionsDrawer } = useSelector(
     (state) => state.conversation,
   );
 
   return (
-    <DrawerContainer collapsed={!suggestedQuestionsDrawer}>
-      {/* <DrawerContent> */}
+    <DrawerContainer suggestedQuestionsDrawer={!suggestedQuestionsDrawer}>
       <Heading>Suggested Questions</Heading>
       <QuestionList suggestedQuestionsDrawer={suggestedQuestionsDrawer}>
         {suggestedQuestions.data.map((question) => (
@@ -25,9 +18,8 @@ const Drawer = () => {
           </QuestionItem>
         ))}
       </QuestionList>
-      {/* </DrawerContent> */}
     </DrawerContainer>
   );
 };
 
-export default Drawer;
+export default SuggestedQuestionsDrawer;

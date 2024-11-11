@@ -8,8 +8,6 @@ import { OptionsWrapper, SidebarContainer } from "./styles";
 const Sidebar = () => {
   const { isSidebarCollapsed } = useSelector((state) => state.app);
 
-  console.log({ isSidebarCollapsed });
-
   return (
     <SidebarContainer isSidebarCollapsed={isSidebarCollapsed}>
       <OptionsWrapper isSidebarCollapsed={isSidebarCollapsed}>
