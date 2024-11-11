@@ -1,13 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Sidebar from "./components/Sidebar/Sidebar";
-
 import { Provider, useSelector } from "react-redux";
 import store from "./store/store";
 import { AppContainer, ContentContainer } from "./styles";
 import Home from "./components/Home/Home";
 import Conversations from "./components/Conversations/Conversations";
 import Layout from "./components/Layout/layout";
+import "./App.css";
 
 function App() {
   return (
