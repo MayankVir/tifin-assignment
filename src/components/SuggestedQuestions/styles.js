@@ -1,37 +1,39 @@
 import styled from "styled-components";
 
-export const DrawerContainer = styled.div(({ collapsed }) => ({
-  width: collapsed ? "0" : "350px",
+export const DrawerContainer = styled.div(({ suggestedQuestionsDrawer }) => ({
+  width: suggestedQuestionsDrawer ? "0" : "350px",
   backgroundColor: "rgba(242, 244, 247, 1)",
-  borderWidth: collapsed ? 0 : "1px 1px 1px 0px",
+  borderWidth: suggestedQuestionsDrawer ? 0 : "1px 1px 1px 0px",
   borderStyle: "solid",
   borderColor: "rgba(228, 231, 236, 1)",
   borderRadius: "0 1rem 1rem 0",
   overflow: "hidden",
   transition: "all 0.3s ease-in-out",
-  opacity: collapsed ? 0 : 1,
+  opacity: suggestedQuestionsDrawer ? 0 : 1,
 }));
+
 export const Heading = styled.h1({
   fontSize: "1.25rem",
   fontWeight: 500,
   color: "rgba(16, 24, 40, 1)",
   padding: "1.5rem",
+  minWidth: "286px",
 });
 
-// export const DrawerContent = styled.div(({ collapsed }) => ({
-//   display: collapsed ? "none" : "flex",
-//   flexDirection: "column",
-// }));
-
-export const QuestionList = styled.div(({ suggestedQuestionsDrawer }) => ({
-  display: suggestedQuestionsDrawer ? "flex" : "none",
+export const QuestionList = styled.div({
+  display: "flex",
   flexDirection: "column",
   gap: "1rem",
   padding: "0 1.5rem 1.5rem",
   overflowY: "auto",
   height: "100%",
   flex: 1,
-}));
+  "&::-webkit-scrollbar": {
+    display: "none",
+  },
+  "-ms-overflow-style": "none",
+  scrollbarWidth: "none",
+});
 
 export const QuestionItem = styled.div({
   padding: "1rem",
@@ -45,6 +47,7 @@ export const QuestionItem = styled.div({
   display: "flex",
   flexDirection: "column",
   gap: "2rem",
+  minWidth: "286px",
   "& .category": {
     color: "rgba(0, 177, 134, 1)",
     fontSize: "12px",

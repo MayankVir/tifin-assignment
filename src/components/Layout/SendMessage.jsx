@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { ChatInput, MessageInputSection } from "./styles";
+
 import SendMessageIcon from "../../assets/icons/svg/send-message.svg";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -7,14 +7,26 @@ import {
   sendMessage,
 } from "../../store/slices/conversationSlice";
 import { debounce } from "../../utils/common";
+import { useNavigate } from "react-router-dom";
+import { ChatInput, MessageInputSection } from "./styles";
 
 const SendMessage = () => {
   const dispatch = useDispatch();
-  const { conversations } = useSelector((state) => state.conversation);
+  const navigate = useNavigate();
+  const { conversations, suggestedQuestionsDrawer } = useSelector(
+    (state) => state.conversation,
+  );
   const [message, setMessage] = useState("");
 
   const handleSendMessage = () => {
-    dispatch(sendMessage(message));
+    if (message.trim()) {
+      const currentMessage = message;
+      setMessage("");
+      Promise.resolve().then(() => {
+        dispatch(sendMessage(currentMessage));
+        navigate("/conversations");
+      });
+    }
   };
 
   const debouncedSearch = useCallback(
@@ -31,7 +43,7 @@ const SendMessage = () => {
   }, [message, debouncedSearch, conversations]);
 
   return (
-    <MessageInputSection>
+    <MessageInputSection suggestedQuestionsDrawer={suggestedQuestionsDrawer}>
       <ChatInput>
         <input
           type="text"

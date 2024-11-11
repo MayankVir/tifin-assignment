@@ -1,9 +1,10 @@
 import React from "react";
-import { ConversationItem, ConversationListSection } from "./styles";
 import { useSelector } from "react-redux";
 import MessageAvatar from "../../assets/icons/svg/message-avatar.svg";
 import dayjs from "dayjs";
-const ConversationList = () => {
+import { ConversationItem, ConversationListSection } from "./styles";
+
+const Converations = () => {
   const { conversations } = useSelector((state) => state.conversation);
 
   return (
@@ -26,4 +27,4 @@ const ConversationList = () => {
   );
 };
 
-export default ConversationList;
+export default Converations;

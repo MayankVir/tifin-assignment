@@ -1,10 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Sidebar from "./components/Sidebar/Sidebar";
-import Content from "./components/Content/Content";
+
 import { Provider, useSelector } from "react-redux";
 import store from "./store/store";
 import { AppContainer, ContentContainer } from "./styles";
+import Home from "./components/Home/Home";
+import Conversations from "./components/Conversations/Conversations";
+import Layout from "./components/Layout/layout";
 
 function App() {
   return (
@@ -23,9 +26,12 @@ function AppWithRoutes() {
     <AppContainer isSidebarCollapsed={isSidebarCollapsed}>
       <Sidebar />
       <ContentContainer>
-        <Routes>
-          <Route path="/" element={<Content />} />
-        </Routes>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/conversations" element={<Conversations />} />
+          </Routes>
+        </Layout>
       </ContentContainer>
     </AppContainer>
   );

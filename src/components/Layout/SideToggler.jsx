@@ -1,9 +1,10 @@
 import React from "react";
 import toggle from "../../assets/icons/svg/toggle.svg";
-import { ToggleWrapper } from "./styles";
+
 import { toggleSidebar } from "../../store/slices/appSlice";
 import { useDispatch } from "react-redux";
 import { toggleSuggestedQuestionsDrawer } from "../../store/slices/conversationSlice";
+import { ToggleWrapper } from "./styles";
 
 const SideToggler = ({ type, show = true }) => {
   const dispatch = useDispatch();

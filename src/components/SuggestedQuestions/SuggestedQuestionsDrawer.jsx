@@ -8,14 +8,15 @@ import {
 } from "./styles";
 import { useSelector } from "react-redux";
 
-const Drawer = () => {
+const SuggestedQuestionsDrawer = () => {
   const { suggestedQuestions, suggestedQuestionsDrawer } = useSelector(
     (state) => state.conversation,
   );
 
+  console.log({ suggestedQuestionsDrawer });
+
   return (
-    <DrawerContainer collapsed={!suggestedQuestionsDrawer}>
-      {/* <DrawerContent> */}
+    <DrawerContainer suggestedQuestionsDrawer={!suggestedQuestionsDrawer}>
       <Heading>Suggested Questions</Heading>
       <QuestionList suggestedQuestionsDrawer={suggestedQuestionsDrawer}>
         {suggestedQuestions.data.map((question) => (
@@ -25,9 +26,8 @@ const Drawer = () => {
           </QuestionItem>
         ))}
       </QuestionList>
-      {/* </DrawerContent> */}
     </DrawerContainer>
   );
 };
 
-export default Drawer;
+export default SuggestedQuestionsDrawer;
