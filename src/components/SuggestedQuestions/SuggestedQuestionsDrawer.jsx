@@ -13,8 +13,6 @@ const SuggestedQuestionsDrawer = () => {
     (state) => state.conversation,
   );
 
-  console.log({ suggestedQuestionsDrawer });
-
   return (
     <DrawerContainer suggestedQuestionsDrawer={!suggestedQuestionsDrawer}>
       <Heading>Suggested Questions</Heading>

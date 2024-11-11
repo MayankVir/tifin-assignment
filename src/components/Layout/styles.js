@@ -23,6 +23,7 @@ export const Header = styled.div(({ suggestedQuestionsDrawer }) => ({
   justifyContent: "space-between",
   borderRadius: suggestedQuestionsDrawer ? "1rem 0 0 0" : "1rem 1rem 0 0",
   border: "1px solid #E4E7EC",
+  zIndex: 1,
 }));
 
 export const HomeSection = styled.div({
@@ -31,12 +32,6 @@ export const HomeSection = styled.div({
   position: "relative",
   display: "flex",
   width: "100%",
-  "& .home-container": {
-    display: "flex",
-    alignItems: "start",
-    justifyContent: "center",
-    width: "100%",
-  },
 });
 
 export const MessageInputSection = styled.div(

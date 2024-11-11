@@ -24,7 +24,6 @@ const Layout = ({ children }) => {
           {children}
           <SideToggler
             type="suggestedQuestions"
-            show={!!conversations.length}
           />
         </HomeSection>
 
